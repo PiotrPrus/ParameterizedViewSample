@@ -27,7 +27,7 @@ class StartActivity : AppCompatActivity() {
             "Cancel",
             "OK",
             { context -> goBack(context) },
-            { context -> Toast.makeText(context, "This is great success :)", Toast.LENGTH_SHORT).show() }
+            { context -> Toast.makeText(context, "This is great success)", Toast.LENGTH_SHORT).show() }
         ))
     }
 
