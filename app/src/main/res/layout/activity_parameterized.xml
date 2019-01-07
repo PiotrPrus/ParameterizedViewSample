@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="viewModel"
+                  type="com.example.piotrprus.parameterizedviewsample.ParameterizedViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_background">
+        <TextView
+                android:text="@{viewModel.mainText}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainText"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textSize="36sp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"/>
+        <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:srcImage="@{viewModel.mainIcon}"
+                android:id="@+id/mainImage"
+                android:layout_marginTop="32dp"
+                app:layout_constraintTop_toBottomOf="@+id/mainText"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"/>
+        <TextView
+                android:text="@{viewModel.secondaryText}"
+                tools:text="You lost connection, please enable network to proceed"
+                android:layout_width="0dp"
+                android:textSize="20sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondaryText"
+                android:layout_marginTop="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/mainImage"
+                android:layout_marginStart="48dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/mainButton"
+                android:textColor="@android:color/white"/>
+        <Button
+                android:text="@{viewModel.mainButtonText}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/mainButton"
+                android:onClick="@{() -> viewModel.onMainButtonClicked()}"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/secondaryButton"/>
+        <Button
+                android:text="@{viewModel.secondaryButtonText}"
+                android:onClick="@{() -> viewModel.onSecondaryButtonClicked()}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/secondaryButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
